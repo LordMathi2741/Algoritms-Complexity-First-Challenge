@@ -20,3 +20,6 @@ def mcd_euclides(a, b):
 ## 2 + 1 + n(1 + 1 + 1) + 1 = 4 + 3n
 ## Better Case
 ## 2 + 1 + 1 = 4
+
+
+##Todo: Compare these algorithms with the time module
