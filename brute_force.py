@@ -1,4 +1,4 @@
-import time;
+import timeit;
 def mcd_fuerza_bruta(a, b):
 
     menor = min(a, b) # 1 + 1
@@ -25,16 +25,18 @@ def mcd_euclides(a, b):
 
 
 def compare_euclides(a, b):
-    start = time.perf_counter()
+    start = timeit.default_timer()
     mcd_euclides(a, b)
-    end = time.perf_counter()
-    return end - start
+    end = timeit.default_timer()
+    elapsed_time = end - start
+    return f"{elapsed_time:.6f} seconds"
 
 def compare_fuerza_bruta(a, b):
-    start = time.perf_counter()
+    start = timeit.default_timer()
     mcd_fuerza_bruta(a, b)
-    end = time.perf_counter()
-    return end - start
+    end = timeit.default_timer()
+    elapsed_time = end - start
+    return f"{elapsed_time:.6f} seconds"
 
 def lower_time():
     if(compare_fuerza_bruta(10,10) < compare_euclides(10,10)): 
@@ -42,9 +44,8 @@ def lower_time():
     else:
         return "Euclides"
 
-print("Euclides:", compare_euclides(10,10))
-print("Fuerza Bruta:", compare_fuerza_bruta(10,10))
-print("The lower alghoritm:", lower_time())
+print("Euclides:", compare_euclides(10000000,1000000000000))
+print("Fuerza Bruta:", compare_fuerza_bruta(10000000,10000000))
 
 
 ##Todo: Compare these algorithms with the time module
